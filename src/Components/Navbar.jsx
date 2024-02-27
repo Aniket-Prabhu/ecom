@@ -134,7 +134,7 @@ export default function WithAction() {
           </Box>
           <Flex alignItems={'center'} gap="20px">
             {/* <FaShoppingCart onClick={onCartOpen} color="#3182ce" size="1.5rem" ></FaShoppingCart> */}
-            <Avatar name="Aniket "src={CartImg} size={"sm"}>
+            <Avatar name="Aniket "src={CartImg} size={"sm"} onClick={onCartOpen}>
           <AvatarBadge width={"1.3em" }bg="teal.500"><Text fontSize={"xs"}color={"white"}>{cart.length}</Text></AvatarBadge>
         </Avatar>
             <Profilepic />
