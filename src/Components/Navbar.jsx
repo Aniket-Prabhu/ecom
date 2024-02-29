@@ -1,9 +1,9 @@
-'use client';
-import React, { useContext, useEffect, useState } from 'react';
-import Profilepic from '../Components/Profilepic';
-import SearchFiled from '../Components/SearchFiled';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { displaySearchSuggText } from '../utils/functions';
+"use client";
+import React, { useContext, useEffect, useState } from "react";
+import Profilepic from "../Components/Profilepic";
+import SearchFiled from "../Components/SearchFiled";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { displaySearchSuggText } from "../utils/functions";
 import {
   Box,
   Flex,
@@ -23,24 +23,20 @@ import {
   Avatar,
   AvatarBadge,
   Text,
-} from '@chakra-ui/react';
-import {
-  ProductListContext,
-  ProductListContextCopy,
-} from '../pages/HomePage';
-import { FaShoppingCart } from 'react-icons/fa';
-import Cart from './Cart';
-import Img from "../assets/Persistent_Logo_Horizontal_Default.png"
+  theme,
+} from "@chakra-ui/react";
+import { ProductListContext, ProductListContextCopy } from "../pages/HomePage";
+import { FaShoppingCart } from "react-icons/fa";
+import Cart from "./Cart";
+import Img from "../assets/Persistent_Logo_Horizontal_Default.png";
 
-import CartImg from "../assets/grocery-store.png"
+import CartImg from "../assets/grocery-store.png";
 
-const Links = ['Mobiles', 'Laptop'];
+const Links = ["Mobiles", "Laptop"];
 
-const test = ['abcdefg', 'hello', 'hemag bhagat'];
+const test = ["abcdefg", "hello", "hemag bhagat"];
 
-
-
-const NavLink = props => {
+const NavLink = (props) => {
   const { children } = props;
   return (
     <Box
@@ -48,12 +44,12 @@ const NavLink = props => {
       as="a"
       px={2}
       py={1}
-      rounded={'md'}
+      rounded={"md"}
       _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
+        textDecoration: "none",
+        bg: useColorModeValue("gray.200", "gray.700"),
       }}
-      href={'#'}
+      href={"#"}
     >
       {children}
     </Box>
@@ -61,7 +57,8 @@ const NavLink = props => {
 };
 
 export default function WithAction() {
-  const { searchProduct, setSearchProduct, cart } = useContext(ProductListContext);
+  const { searchProduct, setSearchProduct, cart } =
+    useContext(ProductListContext);
   const { searchCProductCopy, setSearchProductCopy } = useContext(
     ProductListContextCopy
   );
@@ -72,31 +69,32 @@ export default function WithAction() {
     onClose: onIconClose,
   } = useDisclosure();
 
-  const { isOpen : isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure()
-
-
+  const {
+    isOpen: isCartOpen,
+    onOpen: onCartOpen,
+    onClose: onCartClose,
+  } = useDisclosure();
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
-            size={'md'}
+            size={"md"}
             icon={isIconOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
             onClick={isIconOpen ? onIconClose : onIconOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
-            
-            <Image src={Img} boxSize={20} objectFit='contain'></Image>
-            
+          <HStack spacing={8} alignItems={"center"}>
+            <Image src={Img} boxSize={20} objectFit="contain"></Image>
+
             <HStack
-              as={'nav'}
+              as={"nav"}
               spacing={6}
-              display={{ base: 'none', md: 'flex' }}
+              display={{ base: "none", md: "flex" }}
             >
-              {Links.map(link => (
+              {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack>
@@ -126,29 +124,46 @@ export default function WithAction() {
               right="0"
               zIndex="30"
               background="white"
-              height="100px"
+              maxHeight="150px"
               overflowY="scroll"
+              cursor="pointer"
+              rounded="md"
+              boxShadow="lg"
             >
-              <Box>{displaySearchSuggText(searchProduct)}</Box>
+              
+              {displaySearchSuggText(searchProduct, setSearchProduct)}
             </Box>
           </Box>
-          <Flex alignItems={'center'} gap="20px">
+          <Flex alignItems={"center"} gap="20px">
             {/* <FaShoppingCart onClick={onCartOpen} color="#3182ce" size="1.5rem" ></FaShoppingCart> */}
-            <Avatar name="Aniket "src={CartImg} size={"sm"} onClick={onCartOpen}>
-          <AvatarBadge width={"1.3em" }bg="teal.500"><Text fontSize={"xs"}color={"white"}>{cart.length}</Text></AvatarBadge>
-        </Avatar>
+            <Avatar
+              name="Aniket "
+              src={CartImg}
+              size={"sm"}
+              onClick={onCartOpen}
+            >
+              <AvatarBadge width={"1.3em"} bg="teal.500">
+                <Text fontSize={"xs"} color={"white"}>
+                  {cart.length}
+                </Text>
+              </AvatarBadge>
+            </Avatar>
             <Profilepic />
-            <Button onClick={()=>{
-              localStorage.removeItem("signedin")
-              window.location.href = "/"
-            } } >LOGOUT</Button>
+            <Button
+              onClick={() => {
+                localStorage.removeItem("signedin");
+                window.location.href = "/";
+              }}
+            >
+              LOGOUT
+            </Button>
           </Flex>
         </Flex>
 
         {isIconOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map(link => (
+          <Box pb={4} display={{ md: "none" }}>
+            <Stack as={"nav"} spacing={4}>
+              {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </Stack>
@@ -156,23 +171,22 @@ export default function WithAction() {
         ) : null}
       </Box>
 
-
       <Drawer
-          isOpen={isCartOpen}
-          placement='right'
-          onClose={onCartClose}
-          size={'md'}
-          // finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent overflow='auto' >
-            <DrawerCloseButton />
-            <DrawerHeader >Cart</DrawerHeader>
-                {/* <DrawerContent overflow='auto' > */}
-                  <Cart />
-                  {/* </DrawerContent> */}
-          </DrawerContent>
-        </Drawer>
+        isOpen={isCartOpen}
+        placement="right"
+        onClose={onCartClose}
+        size={"md"}
+        // finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent overflow="auto">
+          <DrawerCloseButton />
+          <DrawerHeader>Cart</DrawerHeader>
+          {/* <DrawerContent overflow='auto' > */}
+          <Cart />
+          {/* </DrawerContent> */}
+        </DrawerContent>
+      </Drawer>
 
       {/* <CardDrawer/>  */}
     </>

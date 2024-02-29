@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 export default function ProductList() {
   let { product, addToCart, removeFromCart } = useContext(ProductContext); //it will return context object which is set by the provider
-  console.log("product", product);
+  // console.log("product", product);
   return (
     <div className="flex">
       {

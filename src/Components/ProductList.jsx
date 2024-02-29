@@ -20,7 +20,7 @@ function ProductList() {
   React.useEffect(() => {
     (async function () {
       let result = await getProducts();
-      console.log("result==>>", result.data)
+      // console.log("result==>>", result.data)
       setResults(result.data);
       setSearchProduct(result.data);
       setSearchProductCopy(result.data);

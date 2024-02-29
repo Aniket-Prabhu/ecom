@@ -13,22 +13,22 @@ function HomePage() {
   // let majorProductList = [];
 
   const [cart, setCart] = useState([]);
-  console.log(cart);
+  // console.log(cart);
 
   const addToCart = (data) => {
-    console.log("add to cart==>>", data)
+    // console.log("add to cart==>>", data)
     data.inCart = true
     setCart([...cart, { ...data, quantity: 1 }]);
   };
 
   const removeFromCart = (data)=> {
-    console.log("remove from cart==>>", data)
+    // console.log("remove from cart==>>", data)
     searchCProductCopy.map((item)=>{
         if(data.title == item.title)
         item.inCart = false
     })
     const temp = cart.filter((obj) => obj.title !== data.title);
-    console.log("removed", temp)
+    // console.log("removed", temp)
     setCart(temp)
   }
 
