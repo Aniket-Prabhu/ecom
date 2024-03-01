@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import Profilepic from "../Components/Profilepic";
-import SearchFiled from "../Components/SearchFiled";
+import Profilepic from "../components/Profilepic";
+import SearchFiled from "../components/SearchFiled";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { displaySearchSuggText } from "../utils/functions";
 import {
@@ -181,7 +181,7 @@ export default function WithAction() {
         <DrawerOverlay />
         <DrawerContent overflow="auto">
           <DrawerCloseButton />
-          <DrawerHeader>Cart</DrawerHeader>
+          <DrawerHeader bg= "gray.200">Cart</DrawerHeader>
           {/* <DrawerContent overflow='auto' > */}
           <Cart />
           {/* </DrawerContent> */}

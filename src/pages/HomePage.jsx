@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 import { Container, HStack, Text } from '@chakra-ui/react';
-import Navbar from '../Components/Navbar';
-import ProductList from '../Components/ProductList';
-import FilterGroups from '../Components/FilterGroups';
-import ColorFilter from '../Components/ColorFilter';
+import Navbar from '../components/Navbar';
+import ProductList from '../components/ProductList';
+import FilterGroups from '../components/FilterGroups';
+import ColorFilter from '../components/ColorFilter';
 export const ProductListContext = createContext();
 export const ProductListContextCopy = createContext();
 

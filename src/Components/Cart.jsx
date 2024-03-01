@@ -35,7 +35,7 @@ export default function Cart() {
     <Card>
       <CardHeader>
         <Flex p="10px" mb={"10px"} justify={"space-between"}>
-          <Text as={"h1"}>Your Bag</Text>
+          <Text as={"h1"} fontWeight="bold">Your Bag</Text>
           <Text>{CART.length} Items</Text>
         </Flex>
       </CardHeader>
@@ -47,7 +47,8 @@ export default function Cart() {
               <HStack justify={"space-between"} p={"10px"}>
                 <Image
                   boxSize={"150px"}
-                  objectFit="cover"
+                  objectFit="contain"
+                  // objectFit="cover"
                   maxW={{ base: "100%", sm: "200px" }}
                   src={cartItem.images}
                   alt="Caffe Latte"
@@ -159,8 +160,9 @@ export default function Cart() {
 
       <Flex p="10px" mb={"10px"}>
         <VStack>
-          <Text>Estimated total</Text>
           <p>Final Taxes calculated at checkout</p>
+          <Text>Estimated total</Text>
+          
         </VStack>
         <Spacer />
         <VStack mb={"20px"} >
