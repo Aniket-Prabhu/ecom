@@ -1,4 +1,4 @@
-import { Box, Text, background } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import axios from "axios";
 
 export function searchData() {
@@ -10,18 +10,21 @@ export async function getProducts() {
   );
   return products;
 }
-const searchHighlight = () => {
-  background = "#f2f2f2";
-};
-export function displaySearchSuggText(searchProduct) {
+
+export function displaySearchSuggText(searchProduct, setSearchProduct) {
   let tmp = searchProduct.map((prod, id) => {
     return (
       <Box
+        as="button"
+        display="block"
+        width="100%"
+        textAlign="left"
         className="searchSuggestion"
         paddingLeft="1rem"
         shadow="2px"
         onClick={() => {
-          console.log("you have clicked");
+          setSearchProduct([prod]);
+          document.getElementById("searchBox").value = prod.title;
         }}
       >
         <Text key={id}>{prod.title}</Text>

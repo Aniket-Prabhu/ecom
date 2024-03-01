@@ -1,6 +1,6 @@
-import React from 'react';
-import { SearchIcon } from '@chakra-ui/icons';
-import { Stack, InputGroup, Input, InputRightElement } from '@chakra-ui/react';
+import React from "react";
+import { SearchIcon } from "@chakra-ui/icons";
+import { Stack, InputGroup, Input, InputRightElement } from "@chakra-ui/react";
 
 function SearchFiled({
   handleFocus,
@@ -8,16 +8,15 @@ function SearchFiled({
   searchCProductCopy,
   handleBlur,
 }) {
-  
   const inputRef = React.useRef(null);
 
   function filterSearch(value) {
     console.log(value);
-    if (value === '') {
+    if (value === "") {
       setSearchProduct([]);
     }
 
-    const res = searchCProductCopy.filter(item => {
+    const res = searchCProductCopy.filter((item) => {
       return (
         value &&
         item &&
@@ -28,7 +27,6 @@ function SearchFiled({
     if (res.length !== 0) {
       setSearchProduct(res);
     } else {
-      console.log('hi');
       setSearchProduct(searchCProductCopy);
     }
   }
@@ -41,12 +39,12 @@ function SearchFiled({
         </InputRightElement>
 
         <Input
+          id="searchBox"
           ref={inputRef}
           type="text"
           placeholder="Search..."
-          onChange={e => {
+          onChange={(e) => {
             filterSearch(e.target.value);
-            
           }}
           onFocus={handleFocus}
           onBlur={handleBlur}

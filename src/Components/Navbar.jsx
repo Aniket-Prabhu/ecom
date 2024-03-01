@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import Profilepic from "../components/Profilepic";
-import SearchFiled from "../components/SearchFiled";
+import Profilepic from "./Profilepic";
+import SearchFiled from "./SearchFiled";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { displaySearchSuggText } from "../utils/functions";
 import {
