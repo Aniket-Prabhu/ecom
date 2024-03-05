@@ -130,14 +130,12 @@ export default function WithAction() {
               rounded="md"
               boxShadow="lg"
             >
-              
               {displaySearchSuggText(searchProduct, setSearchProduct)}
             </Box>
           </Box>
-          <Flex alignItems={"center"} gap="20px">
-            {/* <FaShoppingCart onClick={onCartOpen} color="#3182ce" size="1.5rem" ></FaShoppingCart> */}
+          {/* <Flex alignItems="center" justifyContent="flex-end">
             <Avatar
-              name="Aniket "
+              name="Aniket"
               src={CartImg}
               size={"sm"}
               onClick={onCartOpen}
@@ -148,6 +146,23 @@ export default function WithAction() {
                 </Text>
               </AvatarBadge>
             </Avatar>
+          </Flex> */}
+          <Flex alignItems="center" gap="30px">
+            {/* <FaShoppingCart onClick={onCartOpen} color="#3182ce" size="1.5rem" ></FaShoppingCart> */}
+            <Avatar
+              name="Aniket"
+              className="cart-btn"
+              src={CartImg}
+              size={"sm"}
+              onClick={onCartOpen}
+            >
+              <AvatarBadge width={"1.3em"} bg="teal.500">
+                <Text fontSize={"xs"} color={"white"}>
+                  {cart.length}
+                </Text>
+              </AvatarBadge>
+            </Avatar>
+
             <Profilepic />
             <Button
               onClick={() => {
@@ -181,7 +196,7 @@ export default function WithAction() {
         <DrawerOverlay />
         <DrawerContent overflow="auto">
           <DrawerCloseButton />
-          <DrawerHeader bg= "gray.200">Cart</DrawerHeader>
+          <DrawerHeader bg="gray.200">Cart</DrawerHeader>
           {/* <DrawerContent overflow='auto' > */}
           <Cart />
           {/* </DrawerContent> */}
