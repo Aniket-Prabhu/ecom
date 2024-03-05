@@ -1,12 +1,10 @@
-import React from 'react';
-import { Menu, MenuItem, MenuButton, MenuList, Button } from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
-import {
-  ProductListContext,
-  ProductListContextCopy,
-} from '../pages/HomePage';
+import React from "react";
+import { Text } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ProductListContext, ProductListContextCopy } from "../pages/HomePage";
 
 function FilterGroups() {
+  // console.log("Inside Filter Groups");
   const { searchProduct, setSearchProduct } =
     React.useContext(ProductListContext);
   const { searchCProductCopy, setSearchProductCopy } = React.useContext(
@@ -14,7 +12,7 @@ function FilterGroups() {
   );
   // console.log('XXX', searchCProductCopy);
 
-  const handleSortByPrice = order => {
+  const handleSortByPrice = (order) => {
     // Copy the products array to avoid mutating the original data
     const sortedProducts = [...searchProduct];
 
@@ -25,7 +23,7 @@ function FilterGroups() {
       const priceA = parseInt(a.price);
       const priceB = parseInt(b.price);
 
-      if (order === 'asc') {
+      if (order === "asc") {
         return priceA - priceB;
       } else {
         return priceB - priceA;
@@ -37,24 +35,26 @@ function FilterGroups() {
   };
 
   return (
-    <Menu padding="10px">
-      <MenuButton
-        as={Button}
-        rightIcon={<ChevronDownIcon />}
-        marginTop="10px"
-        width="100px"
+    <>
+      <Text
+        as="button"
+        display="block"
+        padding="5px"
+        className="priceFilter"
+        onClick={() => handleSortByPrice("desc")}
       >
-        Price
-      </MenuButton>
-      <MenuList>
-        <MenuItem onClick={() => handleSortByPrice('desc')}>
-          High to Low
-        </MenuItem>
-        <MenuItem onClick={() => handleSortByPrice('asc')}>
-          Low to High
-        </MenuItem>
-      </MenuList>
-    </Menu>
+        High to Low
+      </Text>
+      <Text
+        as="button"
+        display="block"
+        padding="5px"
+        className="priceFilter"
+        onClick={() => handleSortByPrice("asc")}
+      >
+        Low to High
+      </Text>
+    </>
   );
 }
 

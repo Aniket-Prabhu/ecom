@@ -1,18 +1,6 @@
-import React from 'react';
-import {
-  Radio,
-  RadioGroup,
-  Stack,
-  Menu,
-  MenuButton,
-  MenuList,
-  Button,
-} from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons';
-import {
-  ProductListContext,
-  ProductListContextCopy,
-} from '../pages/HomePage';
+import React from "react";
+import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { ProductListContext, ProductListContextCopy } from "../pages/HomePage";
 
 function ColorFilter() {
   const { searchProduct, setSearchProduct } =
@@ -30,11 +18,11 @@ function ColorFilter() {
     const allColors = new Set();
 
     //go through the data and check if the color is in ur list of [allColors]. If not, append to the list
-    searchCProductCopy.forEach(product => {
+    searchCProductCopy.forEach((product) => {
       allColors.add(product.color);
     });
 
-    allColors.add('all');
+    allColors.add("all");
 
     //convert the set to an array and return the array of distinct colors
     return Array.from(allColors);
@@ -42,48 +30,38 @@ function ColorFilter() {
 
   const colors = getColors();
 
-  const setColorFilter = color => {
-    console.log('Selected Color:', color);
-
+  const setColorFilter = (color) => {
     // Filter products based on the selected color
-    if (color === 'all') {
+    if (color === "all") {
       setSearchProduct(searchCProductCopy);
     } else {
       const filteredResults = searchCProductCopy.filter(
-        product => product.color === color
+        (product) => product.color === color
       );
 
       // Update the results using the prop function
+      console.log("filteredResult: " + filteredResults);
       setSearchProduct(filteredResults);
     }
   };
 
   return (
-    <Menu padding="10px">
-      <MenuButton
-        as={Button}
-        rightIcon={<ChevronDownIcon />}
-        marginTop="10px"
-        width="100px"
-      >
-        Color
-      </MenuButton>
-      <MenuList padding="5px">
-        <RadioGroup>
-          <Stack direction="row">
-            {colors.map((color, index) => (
-              <Radio
-                key={index}
-                value={color}
-                onChange={() => setColorFilter(color)}
-              >
-                {color}
-              </Radio>
-            ))}
-          </Stack>
-        </RadioGroup>
-      </MenuList>
-    </Menu>
+    <>
+      <RadioGroup>
+        <Stack>
+          {colors.map((color, index) => (
+            <Radio
+              key={index}
+              value={color}
+              padding="5px"
+              onChange={() => setColorFilter(color)}
+            >
+              {color}
+            </Radio>
+          ))}
+        </Stack>
+      </RadioGroup>
+    </>
   );
 }
 

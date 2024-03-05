@@ -9,20 +9,20 @@ function ProductList() {
   const { searchCProductCopy, setSearchProductCopy } = useContext(
     ProductListContextCopy
   );
-  const [results, setResults] = React.useState([]);
+  // const [results, setResults] = React.useState([]);
 
   React.useEffect(() => {
     (async function () {
       let result = await getProducts();
       // console.log("result==>>", result.data)
-      setResults(result.data);
+      // setResults(result.data);
       setSearchProduct(result.data);
       setSearchProductCopy(result.data);
       console.log("in useEffect xx");
     })();
   }, [setSearchProduct]);
 
-  return results && results.length > 0 ? (
+  return(
     <Stack>
       <HStack w="100%" alignItems={"center"}>
         <SimpleGrid columns={[2, null, 3]} spacing="40px">
@@ -32,8 +32,6 @@ function ProductList() {
         </SimpleGrid>
       </HStack>
     </Stack>
-  ) : (
-    <div>Hello World</div>
   );
 }
 

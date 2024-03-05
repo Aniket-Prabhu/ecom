@@ -32,7 +32,7 @@ import Img from "../assets/Persistent_Logo_Horizontal_Default.png";
 
 import CartImg from "../assets/grocery-store.png";
 
-const Links = ["Mobiles", "Laptop"];
+// const Links = ["Mobiles", "Laptop"];
 
 const test = ["abcdefg", "hello", "hemag bhagat"];
 
@@ -89,7 +89,7 @@ export default function WithAction() {
           <HStack spacing={8} alignItems={"center"}>
             <Image src={Img} boxSize={20} objectFit="contain"></Image>
 
-            <HStack
+            {/* <HStack
               as={"nav"}
               spacing={6}
               display={{ base: "none", md: "flex" }}
@@ -97,7 +97,7 @@ export default function WithAction() {
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
-            </HStack>
+            </HStack> */}
           </HStack>
           <Box
             width={400}
@@ -160,7 +160,7 @@ export default function WithAction() {
           </Flex>
         </Flex>
 
-        {isIconOpen ? (
+        {/* {isIconOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
@@ -168,7 +168,7 @@ export default function WithAction() {
               ))}
             </Stack>
           </Box>
-        ) : null}
+        ) : null} */}
       </Box>
 
       <Drawer
