@@ -3,7 +3,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Container,
   Image,
   Stack,
   HStack,
@@ -12,8 +11,6 @@ import {
   Divider,
   ButtonGroup,
   Button,
-  GridItem,
-  Grid,
   Box,
 } from "@chakra-ui/react";
 import { MdStars } from "react-icons/md";
@@ -24,7 +21,12 @@ function ProductCard({ product }) {
   let { addToCart, removeFromCart } = useContext(ProductListContext);
 
   return (
-    <Card marginTop="10px" display="flex" flexDirection="column" maxHeight="800px">
+    <Card
+      marginTop="10px"
+      display="flex"
+      flexDirection="column"
+      maxHeight="800px"
+    >
       <CardBody>
         <Box height="250px">
           <Image
