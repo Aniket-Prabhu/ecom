@@ -15,11 +15,7 @@ export function displaySearchSuggText(searchProduct, setSearchProduct) {
   let tmp = searchProduct.map((prod, id) => {
     return (
       <Box
-<<<<<<< HEAD
-        key={id}
-=======
       key={id}
->>>>>>> 907c76c2114803e835f2d9f42991514ae03f9cd5
         as="button"
         display="block"
         width="100%"

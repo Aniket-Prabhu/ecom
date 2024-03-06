@@ -46,7 +46,7 @@ export default function Profilepic() {
           <PopoverHeader fontWeight="semibold">
             {userData.firstName} {userData.lastName}
           </PopoverHeader>
-          <PopoverBody>Jr Software Engineer</PopoverBody>
+          {/* <PopoverBody>Jr Software Engineer</PopoverBody> */}
         </PopoverContent>
       </Popover>
     </>
