@@ -11,7 +11,7 @@ function SearchFiled({
   const inputRef = React.useRef(null);
 
   function filterSearch(value) {
-    console.log(value);
+    // console.log(value);
     if (value === "") {
       setSearchProduct([]);
     }

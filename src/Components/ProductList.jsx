@@ -18,7 +18,7 @@ function ProductList() {
       // setResults(result.data);
       setSearchProduct(result.data);
       setSearchProductCopy(result.data);
-      console.log("in useEffect xx");
+      // console.log("in useEffect xx");
     })();
   }, [setSearchProduct]);
 

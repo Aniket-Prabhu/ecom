@@ -15,6 +15,7 @@ export function displaySearchSuggText(searchProduct, setSearchProduct) {
   let tmp = searchProduct.map((prod, id) => {
     return (
       <Box
+        key={id}
         as="button"
         display="block"
         width="100%"
@@ -27,7 +28,7 @@ export function displaySearchSuggText(searchProduct, setSearchProduct) {
           document.getElementById("searchBox").value = prod.title;
         }}
       >
-        <Text key={id}>{prod.title}</Text>
+        <Text>{prod.title}</Text>
       </Box>
     );
   });

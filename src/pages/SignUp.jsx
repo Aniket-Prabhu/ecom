@@ -42,6 +42,7 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    
     let newErrors = {};
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -80,8 +81,8 @@ export default function SignUp() {
     //   localStorage.setItem("signedin", "true");
     //   window.location.href = "/signin";
     // } else alert("invalid credentials");
-    localStorage.setItem("user", JSON.stringify(formData))
-    console.log("user==>>", user)
+    localStorage.setItem("user", JSON.stringify(formData));
+    console.log("user==>>", user);
     window.location.href = "/signin";
   };
 

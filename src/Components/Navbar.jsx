@@ -11,22 +11,19 @@ import {
   IconButton,
   useDisclosure,
   useColorModeValue,
-  Stack,
   Drawer,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   DrawerHeader,
-  DrawerFooter,
   Button,
   Image,
   Avatar,
   AvatarBadge,
   Text,
-  theme,
 } from "@chakra-ui/react";
 import { ProductListContext, ProductListContextCopy } from "../pages/HomePage";
-import { FaShoppingCart } from "react-icons/fa";
+
 import Cart from "./Cart";
 import Img from "../assets/Persistent_Logo_Horizontal_Default.png";
 
