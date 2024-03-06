@@ -40,7 +40,7 @@ function ColorFilter() {
       );
 
       // Update the results using the prop function
-      console.log("filteredResult: " + filteredResults);
+      // console.log("filteredResult: " + filteredResults);
       setSearchProduct(filteredResults);
     }
   };

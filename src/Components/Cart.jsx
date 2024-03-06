@@ -31,6 +31,8 @@ export default function Cart() {
     setCART(cart);
   }, [cart]);
 
+ 
+
   return (
     <Card>
       <CardHeader>
@@ -40,11 +42,13 @@ export default function Cart() {
         </Flex>
       </CardHeader>
 
-      <SimpleGrid p="10px" spacing={10} minChildWidth="250px" >
+      <SimpleGrid p="10px" spacing={10} minChildWidth="250px"> 
         <CardBody  >
+
           {CART?.map((cartItem, cartIndex) => (
-            <>
-              <HStack justify={"space-between"} p={"10px"}>
+            <div key={cartIndex}>
+           
+              <HStack justify={"space-between"} p={"10px"} >
                 <Image
                   boxSize={"150px"}
                   objectFit="contain"
@@ -95,11 +99,11 @@ export default function Cart() {
                       </Button>
                     </Flex>
                   </Box>
-                  <Text>{cartItem.price * cartItem.quantity}</Text>
+                  <Text>Rs. {cartItem.price * cartItem.quantity}/-</Text>
                 </VStack>
               </HStack>
               <Text>Expected delivery: Tuesday, 16 Jan - Friday, 19th Jan</Text>
-            </>
+            </div>
           ))}
           {/* <HStack justify={"space-between"}p={"10px"}>
             <Image
