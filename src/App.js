@@ -35,23 +35,23 @@
 //     },
 //   ]);
 
-  // const [cart, setCart] = useState([]);
-  // const [showCart, setShowCart] = useState();
-  // console.log(cart);
+// const [cart, setCart] = useState([]);
+// const [showCart, setShowCart] = useState();
+// console.log(cart);
 
-  // const addToCart = (data) => {
-  //   setCart([...cart, { ...data, quantity: 1 }]);
-  // };
+// const addToCart = (data) => {
+//   setCart([...cart, { ...data, quantity: 1 }]);
+// };
 
-  // const removeFromCart = (data)=> {
-  //   product.map((item)=>{
-  //       if(data.name == item.name)
-  //       item.inCart = false
-  //   })
-  //   const temp = cart.filter((obj) => obj.name !== data.name);
-  //   console.log("removed", temp)
-  //   setCart(temp)
-  // }
+// const removeFromCart = (data)=> {
+//   product.map((item)=>{
+//       if(data.name == item.name)
+//       item.inCart = false
+//   })
+//   const temp = cart.filter((obj) => obj.name !== data.name);
+//   console.log("removed", temp)
+//   setCart(temp)
+// }
 
 //   const handleShow = (value) => {
 //     setShowCart(value);
@@ -75,7 +75,12 @@
 // export default App;
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route , Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import HomePage from "./pages/HomePage";
@@ -85,7 +90,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 const App = () => {
   const isLoggedIn = localStorage.getItem("signedin");
-  
+
   return (
     <div>
       <Router>
@@ -94,16 +99,15 @@ const App = () => {
             <Route
               path="/landing-page"
               element={
-                  <ChakraProvider>
-                    <HomePage />
-                  </ChakraProvider>
-
+                <ChakraProvider>
+                  <HomePage />
+                </ChakraProvider>
               }
             />
           )}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/" element={<SignUp />} />
-          <Route path='*' element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </div>
