@@ -45,3 +45,9 @@ test("Checking submit button", async () => {
   //checking if after clicking the submit button it goes to sign in page
   expect(screen.getByText(/sign in/i)).toBeInTheDocument();
 });
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByLabelText(/Last Name/i);
+  expect(linkElement).toBeInTheDocument();
+});

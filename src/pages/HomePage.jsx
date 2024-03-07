@@ -19,6 +19,7 @@ function HomePage() {
   const addToCart = (data) => {
     // console.log("add to cart==>>", data)
     data.inCart = true;
+    
     setCart([...cart, { ...data, quantity: 1 }]);
   };
 
@@ -40,6 +41,7 @@ function HomePage() {
         cart,
         removeFromCart,
         addToCart,
+        setCart
       }}
     >
       <ProductListContextCopy.Provider

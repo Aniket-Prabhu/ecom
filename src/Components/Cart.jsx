@@ -21,15 +21,15 @@ import { useContext } from "react";
 import { ProductListContext } from "../pages/HomePage";
 import { useEffect } from "react";
 import { useState } from "react";
-import { createTheme } from "@mui/material/styles";
+// import { createTheme } from "@mui/material/styles";
 
 export default function Cart() {
-  let { cart, removeFromCart } = useContext(ProductListContext); //it will return context object which is set by the provider
+  let { cart, removeFromCart, setCart } = useContext(ProductListContext); //it will return context object which is set by the provider
 
-  const [CART, setCART] = useState([]);
-  useEffect(() => {
-    setCART(cart);
-  }, [cart]);
+  // const [CART, setCART] = useState([]);
+  // useEffect(() => {
+  //   setCART(cart);
+  // }, [cart]);
 
  
 
@@ -38,14 +38,14 @@ export default function Cart() {
       <CardHeader>
         <Flex p="10px" mb={"10px"} justify={"space-between"}>
           <Text as={"h1"} fontWeight="bold">Your Bag</Text>
-          <Text>{CART.length} Items</Text>
+          <Text>{cart.length} Items</Text>
         </Flex>
       </CardHeader>
 
       <SimpleGrid p="10px" spacing={10} minChildWidth="250px"> 
         <CardBody  >
 
-          {CART?.map((cartItem, cartIndex) => (
+          {cart?.map((cartItem, cartIndex) => (
             <div key={cartIndex}>
            
               <HStack justify={"space-between"} p={"10px"} >
@@ -64,13 +64,13 @@ export default function Cart() {
                 </VStack>
                 <Spacer />
                 <VStack>
-                  <Button  onClick={()=> removeFromCart(cartItem)} leftIcon={<CloseIcon /> }  variant={"ghost"}></Button>
+                  <Button  onClick={()=> removeFromCart(cartItem)} Icon={<CloseIcon /> }  variant={"ghost"}>x</Button>
                   <Box>
                     <Flex>
                       <Button
                         disabled={cartItem.quantity > 1 ? false : true}
                         onClick={() => {
-                          const CarT = CART.map((item, Index) => {
+                          const CarT = cart.map((item, Index) => {
                             return cartIndex === Index
                               ? {
                                   ...item,
@@ -79,27 +79,27 @@ export default function Cart() {
                                 }
                               : item;
                           });
-                          setCART(CarT);
-                        }} size={"xl"}  variant={"ghost"}
+                          setCart(CarT);
+                        }} size={"xs"}  variant={"ghost"}
                       >
                         -
                       </Button>
                       <span>{cartItem.quantity}</span>
                       <Button
                         onClick={() => {
-                          const CarT = CART.map((item, Index) => {
+                          const CarT = cart.map((item, Index) => {
                             return cartIndex === Index
                               ? { ...item, quantity: item.quantity + 1 }
                               : item;
                           });
-                          setCART(CarT);
+                          setCart(CarT);
                         }}
                        size={"xs"}  variant={"ghost"}>
                         +
                       </Button>
                     </Flex>
                   </Box>
-                  <Text>Rs. {cartItem.price * cartItem.quantity}/-</Text>
+                  <Text>${cartItem.price * cartItem.quantity}/-</Text>
                 </VStack>
               </HStack>
               <Text>Expected delivery: Tuesday, 16 Jan - Friday, 19th Jan</Text>
@@ -171,7 +171,7 @@ export default function Cart() {
         <Spacer />
         <VStack mb={"20px"} >
           <Text>Free</Text>
-          <Text>Rs {CART.map((item) => item.price * item.quantity).reduce(
+          <Text>${cart.map((item) => item.price * item.quantity).reduce(
           (total, value) => total + value,
           0
         )}/-</Text>
